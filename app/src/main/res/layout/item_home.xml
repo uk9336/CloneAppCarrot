@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.jw.cloneappcarrot.model.HomeModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/side_padding">
+
+        <ImageView
+            android:id="@+id/itemIv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleTv"
+            style="@style/FontTv"
+            home_title="@{model.title}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/side_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemIv"
+            app:layout_constraintTop_toTopOf="@+id/itemIv" />
+
+        <TextView
+            android:id="@+id/neighborTv"
+            style="@style/FontTv"
+            home_neighbor="@{model.neighbor}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/side_padding"
+            android:layout_marginTop="3dp"
+            android:text="동네명"
+            app:layout_constraintStart_toEndOf="@+id/itemIv"
+            app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+
+        <TextView
+            android:id="@+id/divisionTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" • "
+            app:layout_constraintBottom_toBottomOf="@+id/neighborTv"
+            app:layout_constraintStart_toEndOf="@+id/neighborTv"
+            app:layout_constraintTop_toTopOf="@+id/neighborTv" />
+
+        <TextView
+            android:id="@+id/timeTv"
+            style="@style/FontTv"
+            home_time="@{model.time}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시간"
+            app:layout_constraintBottom_toBottomOf="@+id/neighborTv"
+            app:layout_constraintStart_toEndOf="@+id/divisionTv"
+            app:layout_constraintTop_toTopOf="@+id/neighborTv" />
+
+        <TextView
+            style="@style/FontTv"
+            home_price="@{model.price}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/side_padding"
+            android:layout_marginTop="3dp"
+            android:text="15000원"
+            app:layout_constraintStart_toEndOf="@+id/itemIv"
+            app:layout_constraintTop_toBottomOf="@+id/neighborTv" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/chatIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_tab_4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/chatCountTv" />
+
+            <TextView
+                android:id="@+id/chatCountTv"
+                style="@style/FontTv"
+                home_chat="@{model.chat}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                app:layout_constraintBottom_toBottomOf="@+id/chatIv"
+                app:layout_constraintEnd_toStartOf="@+id/likeIv"
+                app:layout_constraintTop_toTopOf="@+id/chatIv" />
+
+            <ImageView
+                android:id="@+id/likeIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_like"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/likeCountTv" />
+
+            <TextView
+                android:id="@+id/likeCountTv"
+                style="@style/FontTv"
+                home_life="@{model.like}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="@+id/likeIv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/likeIv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

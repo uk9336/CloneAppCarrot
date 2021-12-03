@@ -10,7 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.jw.cloneappcarrot.R
 import com.jw.cloneappcarrot.databinding.ActivityMainBinding
-import com.jw.cloneappcarrot.feature.common.Dlog
+import com.jw.cloneappcarrot.common.Dlog
 import com.jw.cloneappcarrot.feature.tab_chat.ChatFragment
 import com.jw.cloneappcarrot.feature.tab_home.HomeFragment
 import com.jw.cloneappcarrot.feature.tab_map.MapFragment
