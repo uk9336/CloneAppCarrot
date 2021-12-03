@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.jw.cloneappcarrot.MainActivity
+import com.jw.cloneappcarrot.feature.main.MainActivity
 import com.jw.cloneappcarrot.R
 import com.jw.cloneappcarrot.databinding.ActivityStartBinding
 import kotlinx.coroutines.CoroutineScope
@@ -23,6 +23,7 @@ class StartActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
             startActivity(Intent(this@StartActivity, MainActivity::class.java))
+            overridePendingTransition(0,0)
         }
     }
 }

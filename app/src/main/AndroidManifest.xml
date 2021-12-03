@@ -3,6 +3,7 @@
     package="com.jw.cloneappcarrot">
 
     <application
+        android:name=".global.GlobalApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,7 +20,7 @@
             </intent-filter>
         </activity> <!-- 스플래시 화면 -->
         <activity
-            android:name=".MainActivity"
+            android:name=".feature.main.MainActivity"
             android:exported="true" /> <!-- 메인화면 -->
     </application>
 
