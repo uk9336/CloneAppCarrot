@@ -1,4 +1,4 @@
-package com.jw.cloneappcarrot.feature.common
+package com.jw.cloneappcarrot.common
 
 import android.util.Log
 import com.jw.cloneappcarrot.BuildConfig

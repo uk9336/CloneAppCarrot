@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jw.cloneappcarrot.feature.product.ProductViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".feature.product.ProductActivity">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:minHeight="300dp"
+                android:orientation="horizontal"
+                android:src="@drawable/ic_launcher_background"
+                android:transitionName="image_transform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+                android:id="@+id/dotsIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="@dimen/dimen_16"
+                app:dotsColor="@color/app_white"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="8dp"
+                app:dotsSpacing="5dp"
+                app:dotsStrokeColor="@color/app_gray"
+                app:dotsStrokeWidth="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/viewPager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/backIv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="?attr/actionBarItemBackground"
+                android:padding="@dimen/dimen_8"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            이미지 밑으로 내용 레이아웃-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/contentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_16"
+                app:layout_constraintTop_toBottomOf="@+id/viewPager">
+
+                <ImageView
+                    android:id="@+id/profileIv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/profile_background"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/nickNameTv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:gravity="bottom"
+                    android:text="@{viewModel.product.userModel.nickName}"
+                    app:layout_constraintBottom_toTopOf="@+id/neighborTv"
+                    app:layout_constraintStart_toEndOf="@+id/profileIv"
+                    app:layout_constraintTop_toTopOf="@+id/profileIv" />
+
+                <TextView
+                    android:id="@+id/neighborTv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:gravity="top"
+                    android:text="@{viewModel.product.userModel.neighbor}"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileIv"
+                    app:layout_constraintStart_toEndOf="@+id/profileIv"
+                    app:layout_constraintTop_toBottomOf="@+id/nickNameTv" />
+
+                <TextView
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.product.userModel.temp}"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileIv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/profileIv" />
+
+                <View
+                    android:id="@+id/divisionV1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:background="@color/app_gray"
+                    app:layout_constraintTop_toBottomOf="@+id/profileIv" />
+
+
+                <TextView
+                    android:id="@+id/titleTv"
+                    style="@style/FontTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_32"
+                    android:text="@{viewModel.product.productModel.title}"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divisionV1" />
+
+                <TextView
+                    android:id="@+id/categoryTv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:text="@{viewModel.product.productModel.category}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+
+                <TextView
+                    android:id="@+id/dotTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • "
+                    app:layout_constraintBottom_toBottomOf="@+id/categoryTv"
+                    app:layout_constraintStart_toEndOf="@+id/categoryTv"
+                    app:layout_constraintTop_toTopOf="@+id/categoryTv" />
+
+                <TextView
+                    android:id="@+id/timeTv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.product.productModel.time}"
+                    app:layout_constraintBottom_toBottomOf="@+id/categoryTv"
+                    app:layout_constraintStart_toEndOf="@+id/dotTv"
+                    app:layout_constraintTop_toTopOf="@+id/categoryTv" />
+
+
+                <TextView
+                    android:id="@+id/contentTv"
+                    style="@style/FontTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:text="@{viewModel.product.productModel.content}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/categoryTv" />
+
+
+                <TextView
+                    android:id="@+id/chatTv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginTop="@dimen/dimen_32"
+                    android:text="채팅"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/contentTv" />
+
+                <TextView
+                    android:id="@+id/chatCountTv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_32"
+                    android:text="@{viewModel.product.productModel.chat}"
+                    app:layout_constraintStart_toEndOf="@+id/chatTv"
+                    app:layout_constraintTop_toBottomOf="@+id/contentTv" />
+
+
+                <TextView
+                    android:id="@+id/likeIv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginTop="@dimen/dimen_32"
+                    android:text="관심"
+                    app:layout_constraintStart_toEndOf="@+id/chatCountTv"
+                    app:layout_constraintTop_toBottomOf="@+id/contentTv" />
+
+
+                <TextView
+                    android:id="@+id/likeCountIv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_32"
+                    android:text="@{viewModel.product.productModel.like}"
+                    app:layout_constraintStart_toEndOf="@+id/likeIv"
+                    app:layout_constraintTop_toBottomOf="@+id/contentTv" />
+
+
+                <TextView
+                    android:id="@+id/watchTv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginTop="@dimen/dimen_32"
+                    android:text="조회"
+                    app:layout_constraintStart_toEndOf="@+id/likeCountIv"
+                    app:layout_constraintTop_toBottomOf="@+id/contentTv" />
+
+
+                <TextView
+                    android:id="@+id/watchCountTv"
+                    style="@style/FontTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_32"
+                    android:text="@{viewModel.product.productModel.watch}"
+                    app:layout_constraintStart_toEndOf="@+id/watchTv"
+                    app:layout_constraintTop_toBottomOf="@+id/contentTv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

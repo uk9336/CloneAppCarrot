@@ -10,7 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.jw.cloneappcarrot.R
 import com.jw.cloneappcarrot.databinding.ActivityMainBinding
-import com.jw.cloneappcarrot.feature.common.Dlog
+import com.jw.cloneappcarrot.common.Dlog
 import com.jw.cloneappcarrot.feature.tab_chat.ChatFragment
 import com.jw.cloneappcarrot.feature.tab_home.HomeFragment
 import com.jw.cloneappcarrot.feature.tab_map.MapFragment
@@ -24,17 +24,20 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<MainViewModel>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
+        Dlog.d("onCreate")
 
         // Bottom Navigation Listener
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().add(R.id.frameLayout, HomeFragment()).commit()
+        }
         binding.bottomNavi.setOnItemSelectedListener(this)
-        supportFragmentManager.beginTransaction().add(R.id.frameLayout, HomeFragment()).commit()
-
 
         // Set Observer
         observeViewModel()
@@ -52,27 +55,29 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.page1 -> {
-                supportFragmentManager.beginTransaction().add(R.id.frameLayout, HomeFragment())
+                supportFragmentManager.beginTransaction().replace(R.id.frameLayout, HomeFragment())
                     .commitAllowingStateLoss()
                 true
             }
             R.id.page2 -> {
-                supportFragmentManager.beginTransaction().add(R.id.frameLayout, NeighborFragment())
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, NeighborFragment())
                     .commitAllowingStateLoss()
                 true
             }
             R.id.page3 -> {
-                supportFragmentManager.beginTransaction().add(R.id.frameLayout, MapFragment())
+                supportFragmentManager.beginTransaction().replace(R.id.frameLayout, MapFragment())
                     .commitAllowingStateLoss()
                 true
             }
             R.id.page4 -> {
-                supportFragmentManager.beginTransaction().add(R.id.frameLayout, ChatFragment())
+                supportFragmentManager.beginTransaction().replace(R.id.frameLayout, ChatFragment())
                     .commitAllowingStateLoss()
                 true
             }
             R.id.page5 -> {
-                supportFragmentManager.beginTransaction().add(R.id.frameLayout, MyPageFragment())
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, MyPageFragment())
                     .commitAllowingStateLoss()
                 true
             }
