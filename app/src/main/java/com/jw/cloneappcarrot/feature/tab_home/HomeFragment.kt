@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.jw.cloneappcarrot.R
+import com.jw.cloneappcarrot.common.Dlog
 import com.jw.cloneappcarrot.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,7 +36,6 @@ class HomeFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = requireActivity()
 
-
         // Set Observer
         observeViewModel()
 
@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
             // 내 동네 게시글 리스트 구독
             homeList.observe(this@HomeFragment, Observer {
                 // 어뎁터 연결
-                adapter = HomeAdapter(it)
+                adapter = HomeAdapter(it,requireActivity())
                 binding.recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), 1))
                 binding.recyclerView.adapter = adapter
             })

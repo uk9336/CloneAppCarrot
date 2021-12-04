@@ -8,7 +8,7 @@ import androidx.databinding.BindingAdapter
  *
  * Description :
  */
-object DataBindingUtil {
+object DatabindingUtil {
 
     // 내 동네 게시글 제목
     @BindingAdapter("home_title")
