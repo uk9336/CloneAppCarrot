@@ -1,0 +1,25 @@
+{
+  "json_product": {
+    "index": "1",
+    "userUid": "userUid",
+    "image_url1": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+    "image_url2": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+    "image_url3": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+    "image_url4": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+    "image_url5": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+    "title": "맥북 팝니다.",
+    "content": "맥북 2018년 15인치 팝니다.\n직거래 선호합니다.",
+    "category": "디지털/PC",
+    "chat": "1",
+    "like": "3",
+    "time": "2021. 11. 11 10:30",
+    "watch": "102"
+  },
+  "json_user": {
+    "userUid": "String",
+    "nickName": "죽전거래인",
+    "profile_url": "https://i.picsum.photos/id/684/200/200.jpg?hmac=Al0pymCRQr_mB6OlD9xW3UsgmSKDgnNPq2JLj3_CfUY",
+    "neighbor": "죽전동",
+    "temp": "38"
+  }
+}
