@@ -24,6 +24,7 @@ class StartActivity : AppCompatActivity() {
             delay(1000)
             startActivity(Intent(this@StartActivity, MainActivity::class.java))
             overridePendingTransition(0,0)
+            finish()
         }
     }
 }
