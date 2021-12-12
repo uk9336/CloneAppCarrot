@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.jw.cloneappcarrot.model.HomeModel" />
+            type="com.jw.cloneappcarrot.model.JsonProduct" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

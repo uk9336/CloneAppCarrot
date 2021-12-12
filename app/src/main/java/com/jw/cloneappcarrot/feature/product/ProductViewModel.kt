@@ -3,6 +3,7 @@ package com.jw.cloneappcarrot.feature.product
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.jw.cloneappcarrot.model.JsonProduct
 import com.jw.cloneappcarrot.model.ProductInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -18,11 +19,11 @@ class ProductViewModel @Inject constructor() : ViewModel() {
     /**
      * 상품 정보
      */
-    val _product = MutableLiveData<ProductInfo>()
-    val product: LiveData<ProductInfo>
+    val _product = MutableLiveData<JsonProduct>()
+    val product: LiveData<JsonProduct>
         get() = _product
 
-    fun setProduct(info: ProductInfo) {
+    fun setProduct(info: JsonProduct) {
         _product.value = info
     }
 }

@@ -83,7 +83,7 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="@dimen/dimen_8"
                     android:gravity="bottom"
-                    android:text="@{viewModel.product.userModel.nickName}"
+                    android:text="@{viewModel.product.json_user.nickName}"
                     app:layout_constraintBottom_toTopOf="@+id/neighborTv"
                     app:layout_constraintStart_toEndOf="@+id/profileIv"
                     app:layout_constraintTop_toTopOf="@+id/profileIv" />
@@ -95,7 +95,7 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="@dimen/dimen_8"
                     android:gravity="top"
-                    android:text="@{viewModel.product.userModel.neighbor}"
+                    android:text="@{viewModel.product.json_user.neighbor}"
                     app:layout_constraintBottom_toBottomOf="@+id/profileIv"
                     app:layout_constraintStart_toEndOf="@+id/profileIv"
                     app:layout_constraintTop_toBottomOf="@+id/nickNameTv" />
@@ -104,7 +104,7 @@
                     style="@style/FontTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.product.userModel.temp}"
+                    android:text="@{viewModel.product.json_user.temp}"
                     app:layout_constraintBottom_toBottomOf="@+id/profileIv"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/profileIv" />
@@ -124,7 +124,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_32"
-                    android:text="@{viewModel.product.productModel.title}"
+                    android:text="@{viewModel.product.title}"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_8"
-                    android:text="@{viewModel.product.productModel.category}"
+                    android:text="@{viewModel.product.category}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleTv" />
 
@@ -154,7 +154,7 @@
                     style="@style/FontTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.product.productModel.time}"
+                    android:text="@{viewModel.product.time}"
                     app:layout_constraintBottom_toBottomOf="@+id/categoryTv"
                     app:layout_constraintStart_toEndOf="@+id/dotTv"
                     app:layout_constraintTop_toTopOf="@+id/categoryTv" />
@@ -166,7 +166,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_16"
-                    android:text="@{viewModel.product.productModel.content}"
+                    android:text="@{viewModel.product.content}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/categoryTv" />
@@ -189,7 +189,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_32"
-                    android:text="@{viewModel.product.productModel.chat}"
+                    android:text="@{viewModel.product.chat}"
                     app:layout_constraintStart_toEndOf="@+id/chatTv"
                     app:layout_constraintTop_toBottomOf="@+id/contentTv" />
 
@@ -212,7 +212,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_32"
-                    android:text="@{viewModel.product.productModel.like}"
+                    android:text="@{viewModel.product.like}"
                     app:layout_constraintStart_toEndOf="@+id/likeIv"
                     app:layout_constraintTop_toBottomOf="@+id/contentTv" />
 
@@ -235,7 +235,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_32"
-                    android:text="@{viewModel.product.productModel.watch}"
+                    android:text="@{viewModel.product.watch}"
                     app:layout_constraintStart_toEndOf="@+id/watchTv"
                     app:layout_constraintTop_toBottomOf="@+id/contentTv" />
 

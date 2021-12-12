@@ -46,28 +46,53 @@
     - 데이터 형식 샘플
     ```
     {
-        "json_product": {
-            "index": "1",
-            "userUid": "userUid",
-            "image_url1": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
-            "image_url2": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
-            "image_url3": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
-            "image_url4": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
-            "image_url5": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
-            "title": "맥북 팝니다.",
-            "content": "맥북 2018년 15인치 팝니다.\n직거래 선호합니다.",
-            "category": "디지털/PC",
-            "chat": "1",
-            "like": "3",
-            "time": "2021. 11. 11 10:30",
-            "watch": "102"
-        },
-        "json_user": {
-            "userUid": "String",
-            "nickName": "죽전거래인",
-            "profile_url": "profile_url",
-            "neighbor": "죽전동",
-            "temp": "38"
-        }
+       "json_product":[
+           {
+                "index": "1",
+                "userUid": "userUid1",
+                "image_url1": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "image_url2": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "image_url3": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "image_url4": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "image_url5": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "title": "맥북 팝니다.",
+                "content": "맥북 2018년 15인치 팝니다.\n직거래 선호합니다.",
+                "category": "디지털/PC",
+                "chat": "1",
+                "like": "3",
+                "time": "2021. 11. 11 10:30",
+                "watch": "102",
+                "json_user": {
+                "userUid": "userUid1",
+                "nickName": "죽전거래인",
+                "profile_url": "https://i.picsum.photos/id/684/200/200.jpg?hmac=Al0pymCRQr_mB6OlD9xW3UsgmSKDgnNPq2JLj3_CfUY",
+                "neighbor": "죽전동",
+                "temp": "38"
+                }
+                },
+                {
+                "index": "2",
+                "userUid": "userUid2",
+                "image_url1": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "image_url2": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "image_url3": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "image_url4": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "image_url5": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
+                "title": "중고 거래합니다.",
+                "content": "매직 마우스 팝니다.",
+                "category": "디지털/PC",
+                "chat": "2",
+                "like": "2",
+                "time": "2021. 11. 30 10:30",
+                "watch": "30",
+                "json_user": {
+                    "userUid": "userUid2",
+                    "nickName": "당근유저",
+                    "profile_url": "https://i.picsum.photos/id/684/200/200.jpg?hmac=Al0pymCRQr_mB6OlD9xW3UsgmSKDgnNPq2JLj3_CfUY",
+                    "neighbor": "금곡동",
+                    "temp": "39.5"
+                }
+            }
+        ]
     }
     ```
