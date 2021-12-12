@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.jw.cloneappcarrot.R
 import com.jw.cloneappcarrot.base.BaseActivity
 import com.jw.cloneappcarrot.common.Dlog
@@ -89,6 +90,7 @@ class ProductActivity : BaseActivity<ActivityProductBinding, ProductViewModel>(
         // 프로필 이미지
         Glide.with(this@ProductActivity)
             .load(url)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(binding.profileIv)
     }
 }
