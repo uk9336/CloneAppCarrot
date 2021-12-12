@@ -13,5 +13,6 @@
     <color name="app_white">#FFFFFF</color>
     <color name="app_black">#000000</color>
     <color name="app_gray">#DDDDDD</color>
+    <color name="app_hint">#808080</color>
 
 </resources>

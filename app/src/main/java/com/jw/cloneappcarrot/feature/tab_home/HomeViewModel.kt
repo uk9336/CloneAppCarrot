@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jw.cloneappcarrot.base.BaseViewModel
 import com.jw.cloneappcarrot.model.JsonProduct
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers.Main
@@ -17,7 +18,7 @@ import javax.inject.Inject
  * Description :
  */
 @HiltViewModel
-class HomeViewModel @Inject constructor() : ViewModel() {
+class HomeViewModel @Inject constructor() : BaseViewModel() {
 
 
     /**
