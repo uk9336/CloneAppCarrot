@@ -56,6 +56,7 @@ class HomeFragment : Fragment() {
 
             // 내 동네 게시글 리스트 구독
             homeList.observe(this@HomeFragment, Observer {
+                Dlog.d("homtList")
                 // 어뎁터 연결
                 adapter = HomeAdapter(it,requireActivity())
                 binding.recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), 1))

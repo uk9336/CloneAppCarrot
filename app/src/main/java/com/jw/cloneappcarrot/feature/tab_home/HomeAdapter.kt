@@ -23,7 +23,7 @@ class HomeAdapter(
 ) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
 
-    // ViewHolder Class
+    // ViewHRolder Class
     inner class ViewHolder(val binding: ItemHomeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(info: HomeModel) {
             binding.model = info

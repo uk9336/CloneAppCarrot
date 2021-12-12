@@ -26,7 +26,7 @@
                 android:adjustViewBounds="true"
                 android:minHeight="300dp"
                 android:orientation="horizontal"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/ic_launcher_foreground"
                 android:transitionName="image_transform"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
