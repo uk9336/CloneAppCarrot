@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jw.cloneappcarrot.model.HomeModel
+import com.jw.cloneappcarrot.model.JsonProduct
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
@@ -23,8 +23,8 @@ class HomeViewModel @Inject constructor() : ViewModel() {
     /**
      * 홈 탭 데이터 리스트 받아오기
      */
-    val _homeList = MutableLiveData<List<HomeModel>>()
-    val homeList: LiveData<List<HomeModel>>
+    val _homeList = MutableLiveData<List<JsonProduct>>()
+    val homeList: LiveData<List<JsonProduct>>
         get() = _homeList
 
     // 내 동네 게시글 리스트 받아오기

@@ -1,16 +1,13 @@
 package com.jw.cloneappcarrot.feature.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.jw.cloneappcarrot.R
+import com.jw.cloneappcarrot.base.BaseActivity
 import com.jw.cloneappcarrot.databinding.ActivityMainBinding
-import com.jw.cloneappcarrot.common.Dlog
 import com.jw.cloneappcarrot.feature.tab_chat.ChatFragment
 import com.jw.cloneappcarrot.feature.tab_home.HomeFragment
 import com.jw.cloneappcarrot.feature.tab_map.MapFragment
@@ -19,19 +16,14 @@ import com.jw.cloneappcarrot.feature.tab_neighbor.NeighborFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main),
+    NavigationBarView.OnItemSelectedListener {
 
-    private lateinit var binding: ActivityMainBinding
-    private val viewModel by viewModels<MainViewModel>()
-
+    override val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-
-        Dlog.d("onCreate")
 
         // Bottom Navigation Listener
         if (savedInstanceState == null) {

@@ -1,7 +1,6 @@
 package com.jw.cloneappcarrot.feature.tab_home
 
-import com.jw.cloneappcarrot.model.HomeModel
-import com.jw.cloneappcarrot.model.fakeHomeList
+import com.jw.cloneappcarrot.model.*
 
 /**
  * Created by LJW on 2021/12/03.
@@ -10,7 +9,7 @@ import com.jw.cloneappcarrot.model.fakeHomeList
  */
 interface HomeRepository {
 
-    suspend fun getHomeList(): List<HomeModel> {
-        return fakeHomeList
+    suspend fun getHomeList(): List<JsonProduct> {
+        return fakeJson
     }
 }

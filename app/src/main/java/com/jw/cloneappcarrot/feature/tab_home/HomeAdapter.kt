@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.jw.cloneappcarrot.databinding.ItemHomeBinding
 import com.jw.cloneappcarrot.extension.setOnSingleClickListener
 import com.jw.cloneappcarrot.feature.product.ProductActivity
-import com.jw.cloneappcarrot.model.HomeModel
+import com.jw.cloneappcarrot.model.JsonProduct
 
 /**
  * Created by LJW on 2021/12/03.
@@ -18,14 +18,14 @@ import com.jw.cloneappcarrot.model.HomeModel
  * Description :
  */
 class HomeAdapter(
-    private val items: List<HomeModel>,
+    private val items: List<JsonProduct>,
     private val activity: Activity
 ) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
 
     // ViewHRolder Class
     inner class ViewHolder(val binding: ItemHomeBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(info: HomeModel) {
+        fun bind(info: JsonProduct) {
             binding.model = info
             val context = itemView.context
             // 아이템 클릭
@@ -39,6 +39,7 @@ class HomeAdapter(
                         binding.cardView,
                         "image_transform"
                     )
+                i.putExtra("info", info)
                 context.startActivity(
                     i,
                     options.toBundle()
@@ -55,7 +56,7 @@ class HomeAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(items[position])
         Glide.with(activity)
-            .load(items[position].image_url)
+            .load(items[position].image_url1)
             .into(holder.binding.itemIv)
     }
 
