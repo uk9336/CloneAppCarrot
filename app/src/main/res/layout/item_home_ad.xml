@@ -4,22 +4,6 @@
 
     <data>
 
-        <import type="com.jw.cloneappcarrot.feature.Command" />
-
-        <import type="com.jw.cloneappcarrot.feature.CommandInvoker" />
-
-        <variable
-            name="view"
-            type="android.view.View" />
-
-        <variable
-            name="index"
-            type="Integer" />
-
-        <variable
-            name="viewModel"
-            type="com.jw.cloneappcarrot.feature.tab_home.HomeViewModel" />
-
         <variable
             name="model"
             type="com.jw.cloneappcarrot.model.JsonProduct" />
@@ -30,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
-        android:onClick="@{() -> viewModel.commandInvoker(Command.HOME_ITEM).index(index).view(view).commit()}"
         android:padding="@dimen/side_padding">
 
         <androidx.cardview.widget.CardView
@@ -47,9 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
-                app:errorHolder="@{@drawable/ic_launcher_foreground}"
-                app:inside="@{true}"
-                app:srcUrl="@{model.image_url1}" />
+                android:src="@drawable/ic_launcher_foreground" />
         </androidx.cardview.widget.CardView>
 
         <TextView
