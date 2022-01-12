@@ -1,13 +1,12 @@
 package com.jw.cloneappcarrot.feature.tab_home
 
 import android.os.Bundle
-import android.view.View
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.jw.cloneappcarrot.R
 import com.jw.cloneappcarrot.base.BaseFragment
 import com.jw.cloneappcarrot.databinding.FragmentHomeBinding
+import com.jw.cloneappcarrot.model.JsonProduct
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -18,36 +17,20 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
 
-    override val viewModel by viewModels<HomeViewModel>()
+    override fun defineViewModel() = getViewModel(HomeViewModel::class.java)
 
-    private lateinit var adapter: HomeAdapter
+    override fun onCreated(savedInstanceState: Bundle?) {}
+}
 
-    override fun init() {
-        // Set Observer
-        observeViewModel()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // 내 동네 게시글 리스트 받아오기
-        viewModel.getHomeList()
-
-    }
-
-    // Set Observer
-    fun observeViewModel() {
-
-        viewModel.apply {
-
-            // 내 동네 게시글 리스트 구독
-            homeList.observe(requireActivity(), Observer {
-                // 어뎁터 연결
-                adapter = HomeAdapter(it, requireActivity())
-                binding.recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), 1))
-                binding.recyclerView.adapter = adapter
-            })
-
-        }
+@BindingAdapter("homeData", "viewModel")
+fun bindHomeData(recyclerView: RecyclerView, list: List<JsonProduct>?, viewModel: HomeViewModel) {
+    list?.let {
+        recyclerView.run {
+            adapter as HomeAdapter? ?: run {
+                HomeAdapter(viewModel).also {
+                    adapter = it
+                }
+            }
+        }.items = list
     }
 }

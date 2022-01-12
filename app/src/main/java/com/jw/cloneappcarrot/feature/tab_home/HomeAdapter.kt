@@ -1,66 +1,87 @@
 package com.jw.cloneappcarrot.feature.tab_home
 
-import android.app.Activity
-import android.app.ActivityOptions
-import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.jw.cloneappcarrot.R
+import com.jw.cloneappcarrot.common.Dlog
+import com.jw.cloneappcarrot.databinding.ItemHomeAdBinding
 import com.jw.cloneappcarrot.databinding.ItemHomeBinding
-import com.jw.cloneappcarrot.extension.setOnSingleClickListener
-import com.jw.cloneappcarrot.feature.product.ProductActivity
 import com.jw.cloneappcarrot.model.JsonProduct
 
 /**
- * Created by LJW on 2021/12/03.
+ * Created by LJW on 2022/01/11.
  *
  * Description :
  */
-class HomeAdapter(
-    private val items: List<JsonProduct>,
-    private val activity: Activity
-) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class HomeAdapter(val viewModel: HomeViewModel) :
+    RecyclerView.Adapter<AbstractHomeViewHolder<*>>() {
 
+    var items: List<JsonProduct>? = null
 
-    // ViewHRolder Class
-    inner class ViewHolder(val binding: ItemHomeBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(info: JsonProduct) {
-            binding.model = info
-            val context = itemView.context
-            // 아이템 클릭
-            binding.itemLayout.setOnSingleClickListener {
-
-                // 상품 정보보기 화면으로 이동
-                val i = Intent(context, ProductActivity::class.java)
-                val options =
-                    ActivityOptions.makeSceneTransitionAnimation(
-                        activity,
-                        binding.cardView,
-                        "image_transform"
-                    )
-                i.putExtra("info", info)
-                context.startActivity(
-                    i,
-                    options.toBundle()
-                )
-            }
-        }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
-        Glide.with(activity)
-            .load(items[position].image_url1)
-            .into(holder.binding.itemIv)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbstractHomeViewHolder<*> {
+        return if (viewType == 0) HomeViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_home, parent, false)
+        )
+        else HomeAdViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_home_ad, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return items?.size ?: 0
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return items?.let {
+            it[position].let { it1 ->
+                when (it1.type) {
+                    "sale" -> 0
+                    else -> 1
+                }
+            }
+        } ?: 0
+    }
+
+    override fun onBindViewHolder(holder: AbstractHomeViewHolder<*>, position: Int) {
+        items?.let {
+            it[position].let { it1 ->
+                when (holder) {
+                    is HomeViewHolder -> {
+                        holder.binding.view = holder.binding.cardView
+                        holder.binding.index = position
+                        holder.binding.model = it1
+                        holder.binding.viewModel = viewModel
+                        holder.binding.lifecycleOwner = viewModel.lifecycleOwner
+                    }
+                    is HomeAdViewHolder -> {
+                        holder.binding.model = it1
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ViewHolder Abstract 클래스
+abstract class AbstractHomeViewHolder<T : ViewDataBinding>(itemView: View) :
+    RecyclerView.ViewHolder(itemView) {
+    lateinit var binding: T
+}
+
+// 판매 아이템 ViewHolder
+class HomeViewHolder(itemView: View) : AbstractHomeViewHolder<ItemHomeBinding>(itemView) {
+    init {
+        binding = DataBindingUtil.bind(itemView)!!
+    }
+}
+
+// 광고 아이템 ViewHolder
+class HomeAdViewHolder(itemView: View) : AbstractHomeViewHolder<ItemHomeAdBinding>(itemView) {
+    init {
+        binding = DataBindingUtil.bind(itemView)!!
     }
 }
