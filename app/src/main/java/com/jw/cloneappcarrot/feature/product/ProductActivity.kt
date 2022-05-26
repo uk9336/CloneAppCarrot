@@ -84,7 +84,7 @@ class ProductActivity : BaseActivity<ActivityProductBinding, ProductViewModel>(
     // 프로필 이미지 설정
     fun setProfile(url: String) {
 
-        // 프로필 이미지 원형으로 만들기
+        // 프로필 이미지 원형으로 만들기 
         binding.profileIv.clipToOutline = true
 
         // 프로필 이미지

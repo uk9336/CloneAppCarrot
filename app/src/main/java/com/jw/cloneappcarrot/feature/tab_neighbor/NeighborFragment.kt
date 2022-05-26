@@ -9,7 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.jw.cloneappcarrot.R
 import com.jw.cloneappcarrot.databinding.FragmentNeighborBinding
+import com.jw.cloneappcarrot.feature.tab_home.HomeRepositoryImpl
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class NeighborFragment : Fragment() {
@@ -30,6 +33,7 @@ class NeighborFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getDate()
     }
 
 }

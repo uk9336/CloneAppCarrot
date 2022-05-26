@@ -3,7 +3,6 @@ package com.jw.cloneappcarrot.feature.splash
 import android.content.Intent
 import androidx.lifecycle.viewModelScope
 import com.jw.cloneappcarrot.base.BaseViewModel
-import com.jw.cloneappcarrot.feature.Command
 import com.jw.cloneappcarrot.feature.main.MainActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -23,6 +22,4 @@ class StartViewModel : BaseViewModel() {
             finish()
         }
     }
-
-    override fun onHandleEvent(event: Command) {}
 }

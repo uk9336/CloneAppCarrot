@@ -5,8 +5,6 @@
 
     <data>
 
-        <import type="com.jw.cloneappcarrot.feature.Command" />
-
         <variable
             name="viewModel"
             type="com.jw.cloneappcarrot.feature.main.MainViewModel" />
@@ -125,7 +123,6 @@
             android:layout_height="match_parent"
             android:background="#99000000"
             android:focusable="true"
-            android:onClick="@{() -> viewModel.commandInvoker(Command.MAIN_DIMENSION).commit()}"
             android:visibility="invisible" />
 
 
@@ -201,7 +198,6 @@
                 android:layout_margin="@dimen/dimen_16"
                 android:backgroundTint="@color/app_carrot"
                 android:contentDescription="@string/app_name"
-                android:onClick="@{() -> viewModel.commandInvoker(Command.MAIN_FAB_1).commit()}"
                 android:src="@drawable/ic_add"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -12,6 +12,7 @@ import com.jw.cloneappcarrot.R
 import com.jw.cloneappcarrot.base.BaseActivity
 import com.jw.cloneappcarrot.databinding.ActivityMainBinding
 import com.jw.cloneappcarrot.extension.fadeVisibility
+import com.jw.cloneappcarrot.extension.setOnSingleClickListener
 import com.jw.cloneappcarrot.feature.tab_chat.ChatFragment
 import com.jw.cloneappcarrot.feature.tab_home.HomeFragment
 import com.jw.cloneappcarrot.feature.tab_map.MapFragment
@@ -46,6 +47,15 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 
         // Set Observer
         observeViewModel()
+
+        binding.dimensionView.setOnSingleClickListener {
+            viewModel._fabOpen.value = false
+        }
+        binding.fab1.setOnSingleClickListener {
+            if (viewModel.fabOpen.value == null)
+                viewModel._fabOpen.value = true
+            else viewModel._fabOpen.value = !viewModel.fabOpen.value!!
+        }
     }
 
     // init

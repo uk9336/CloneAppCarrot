@@ -18,9 +18,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:homeData="@{viewModel.homeList}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:viewModel="@{viewModel}" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </FrameLayout>
 </layout>

@@ -8,14 +8,10 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.cancel
 import com.jw.cloneappcarrot.BR
-import com.jw.cloneappcarrot.extension.repeatOnStarted
-import com.jw.cloneappcarrot.feature.MutableEventFlow
-import kotlinx.coroutines.flow.collect
 
 /**
  * Created by LJW on 2021/12/13.

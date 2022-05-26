@@ -4,13 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.*
 import com.jw.cloneappcarrot.common.Dlog
-import com.jw.cloneappcarrot.feature.CommandInvoker
-import com.jw.cloneappcarrot.feature.Command
-import com.jw.cloneappcarrot.feature.MutableEventFlow
-import com.jw.cloneappcarrot.feature.asEventFlow
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import java.io.Serializable
 
 /**
@@ -21,6 +16,8 @@ import java.io.Serializable
 abstract class BaseViewModel : ViewModel(), LifecycleEventObserver {
 
     lateinit var activity: BaseActivity<*, *>
+
+    var compositeDisposable : CompositeDisposable = CompositeDisposable()
 
     var lifecycleOwner: LifecycleOwner? = null
         set(value) {
@@ -43,55 +40,17 @@ abstract class BaseViewModel : ViewModel(), LifecycleEventObserver {
     /**************************
      * template
      *************************/
-    protected abstract fun onHandleEvent(event: Command)
     protected abstract fun onInitInternal()
 
     /**************************
      * LifecycleEventObserver
      *************************/
-    private val _eventFlow = MutableEventFlow<Command>()
-    val eventFlow = _eventFlow.asEventFlow()
-
-    /**
-     * xml 에서 호출
-     */
-    fun commandInvoker(id: Int) = CommandInvoker(this, Command.Builder(id))
-
-    /**
-     * 커맨드 실행
-     */
-    fun onCommand(command: Command) {
-        event(command)
-    }
-
-/*
-    fun eventInvoker(eventId: Int) {
-        Dlog.d("eventId => $eventId")
-        event(EventType(eventId))
-    }
-*/
-
-    /**
-     * 커맨드 동작
-     */
-    fun event(event: Command) {
-        viewModelScope.launch {
-            _eventFlow.emit(event)
-        }
-    }
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
         when (event) {
             // onCreate
             Lifecycle.Event.ON_CREATE -> {
                 Dlog.d("ON_CREATE")
-
-                // 이벤트 연결
-                viewModelScope.launch {
-                    eventFlow.collect { e ->
-                        onHandleEvent(e)
-                    }
-                }
                 onInitInternal()
             }
             // onStart
