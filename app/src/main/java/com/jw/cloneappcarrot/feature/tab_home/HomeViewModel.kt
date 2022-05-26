@@ -2,14 +2,13 @@ package com.jw.cloneappcarrot.feature.tab_home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jw.cloneappcarrot.base.BaseViewModel
+import com.jw.cloneappcarrot.base.BaseFragmentViewModel
+import com.jw.cloneappcarrot.common.Dlog
 import com.jw.cloneappcarrot.model.JsonProduct
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers.Main
+import io.reactivex.rxjava3.subjects.BehaviorSubject
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -18,8 +17,13 @@ import javax.inject.Inject
  * Description :
  */
 @HiltViewModel
-class HomeViewModel @Inject constructor() : BaseViewModel() {
+class HomeViewModel @Inject constructor() : BaseFragmentViewModel() {
 
+    val behavior: BehaviorSubject<List<JsonProduct>> = BehaviorSubject.create()
+
+    override fun onInitInternal() {
+        getHomeData()
+    }
 
     /**
      * 홈 탭 데이터 리스트 받아오기
@@ -29,12 +33,11 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
         get() = _homeList
 
     // 내 동네 게시글 리스트 받아오기
-    fun getHomeList() {
+    fun getHomeData() {
+        Dlog.d("getHomeData")
         viewModelScope.launch {
             val data = HomeRepositoryImpl.getHomeList()
-            withContext(Main) {
-                _homeList.value = data
-            }
+            _homeList.value = data
         }
     }
 }

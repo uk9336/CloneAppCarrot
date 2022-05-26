@@ -22,9 +22,8 @@ class HomeAdapter(
     private val activity: Activity
 ) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
-
-    // ViewHRolder Class
-    inner class ViewHolder(val binding: ItemHomeBinding) : RecyclerView.ViewHolder(binding.root) {
+    // ViewHolder Class
+     inner class ViewHolder(val binding: ItemHomeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(info: JsonProduct) {
             binding.model = info
             val context = itemView.context
@@ -53,14 +52,15 @@ class HomeAdapter(
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+    override fun getItemCount(): Int {
+        return items.size
+    }
+
+    override fun onBindViewHolder(holder: HomeAdapter.ViewHolder, position: Int) {
         holder.bind(items[position])
         Glide.with(activity)
             .load(items[position].image_url1)
             .into(holder.binding.itemIv)
-    }
-
-    override fun getItemCount(): Int {
-        return items.size
     }
 }

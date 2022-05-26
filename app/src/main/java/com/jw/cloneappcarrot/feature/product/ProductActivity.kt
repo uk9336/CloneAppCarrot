@@ -10,6 +10,7 @@ import com.jw.cloneappcarrot.base.BaseActivity
 import com.jw.cloneappcarrot.common.Dlog
 import com.jw.cloneappcarrot.databinding.ActivityProductBinding
 import com.jw.cloneappcarrot.extension.setOnSingleClickListener
+import com.jw.cloneappcarrot.feature.splash.StartViewModel
 import com.jw.cloneappcarrot.model.JsonProduct
 import com.jw.cloneappcarrot.model.ProductImageModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,13 +20,12 @@ class ProductActivity : BaseActivity<ActivityProductBinding, ProductViewModel>(
     R.layout.activity_product
 ) {
 
-    override val viewModel by viewModels<ProductViewModel>()
-
     // 이미지 리스트
     private lateinit var imageLists: ArrayList<ProductImageModel>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun defineViewModel() = getViewModel(ProductViewModel::class.java)
+
+    override fun onCreated(savedInstanceState: Bundle?) {
 
         // Set Observer
         observeViewModel()
@@ -84,7 +84,7 @@ class ProductActivity : BaseActivity<ActivityProductBinding, ProductViewModel>(
     // 프로필 이미지 설정
     fun setProfile(url: String) {
 
-        // 프로필 이미지 원형으로 만들기
+        // 프로필 이미지 원형으로 만들기 
         binding.profileIv.clipToOutline = true
 
         // 프로필 이미지

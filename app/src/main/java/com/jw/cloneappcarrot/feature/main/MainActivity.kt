@@ -6,8 +6,6 @@ import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.activity.viewModels
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.google.android.material.navigation.NavigationBarView
 import com.jw.cloneappcarrot.R
@@ -23,10 +21,11 @@ import com.jw.cloneappcarrot.feature.tab_neighbor.NeighborFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main),
-    NavigationBarView.OnItemSelectedListener {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
+    R.layout.activity_main
+), NavigationBarView.OnItemSelectedListener {
 
-    override val viewModel by viewModels<MainViewModel>()
+    override fun defineViewModel() = getViewModel(MainViewModel::class.java)
 
     private lateinit var fabOpenAnim: Animation
     private lateinit var fabCloseAnim: Animation
@@ -35,9 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
     private lateinit var alphaOnAnim: Animation
     private lateinit var alphaOffAnim: Animation
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    override fun onCreated(savedInstanceState: Bundle?) {
 
         // Bottom Navigation Listener
         if (savedInstanceState == null) {
@@ -51,19 +48,14 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
         // Set Observer
         observeViewModel()
 
-
-        // 플로팅 버튼 클릭
+        binding.dimensionView.setOnSingleClickListener {
+            viewModel._fabOpen.value = false
+        }
         binding.fab1.setOnSingleClickListener {
             if (viewModel.fabOpen.value == null)
-                viewModel.setFabOpen(true)
-            else viewModel.setFabOpen(!viewModel.fabOpen.value!!)
+                viewModel._fabOpen.value = true
+            else viewModel._fabOpen.value = !viewModel.fabOpen.value!!
         }
-
-        // dimension View
-        binding.dimensionView.setOnSingleClickListener {
-            viewModel.setFabOpen(false)
-        }
-
     }
 
     // init
@@ -114,7 +106,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
             R.id.page1 -> {
                 supportFragmentManager.beginTransaction().replace(R.id.frameLayout, HomeFragment())
                     .commitAllowingStateLoss()
-                binding.fab1.visibility = View.INVISIBLE
+                binding.fab1.visibility = View.VISIBLE
                 true
             }
             R.id.page2 -> {
