@@ -34,7 +34,6 @@ class HomeViewModel @Inject constructor() : BaseFragmentViewModel() {
 
     // 내 동네 게시글 리스트 받아오기
     fun getHomeData() {
-        Dlog.d("getHomeData")
         viewModelScope.launch {
             val data = HomeRepositoryImpl.getHomeList()
             _homeList.value = data

@@ -19,7 +19,6 @@ class NeighborViewModel @Inject constructor() : ViewModel() {
     fun getDate() {
         viewModelScope.launch {
             val data = HomeRepositoryImpl.getHomeList()
-            Logger.d(data)
         }
     }
 }

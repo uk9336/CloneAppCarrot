@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -15,10 +16,76 @@
         android:background="@color/app_white"
         tools:context=".feature.tab_chat.ChatFragment">
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Chat" />
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/titleLayout"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/app_white"
+                android:elevation="10dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/side_padding"
+                    android:background="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/neighborTv"
+                        style="@style/FontTv"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="채팅" />
+
+                    <ImageView
+                        android:id="@+id/neighborIv"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/neighborTv"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_down" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/menuIv3"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/menuIv2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="10dp" />
+
+                <ImageView
+                    android:id="@+id/menuIv2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/menuIv1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="10dp" />
+
+                <ImageView
+                    android:id="@+id/menuIv1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
 </layout>

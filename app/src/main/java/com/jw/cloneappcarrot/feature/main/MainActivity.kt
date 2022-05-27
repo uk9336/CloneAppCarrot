@@ -21,7 +21,7 @@ import com.jw.cloneappcarrot.feature.tab_neighbor.NeighborFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
+open class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     R.layout.activity_main
 ), NavigationBarView.OnItemSelectedListener {
 

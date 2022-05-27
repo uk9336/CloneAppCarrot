@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import com.jw.cloneappcarrot.R
 import com.jw.cloneappcarrot.base.BaseFragment
 import com.jw.cloneappcarrot.databinding.FragmentHomeBinding
+import com.orhanobut.logger.Logger
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

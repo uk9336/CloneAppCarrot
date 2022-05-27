@@ -7,8 +7,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import com.jw.cloneappcarrot.BR
-import com.jw.cloneappcarrot.extension.repeatOnStarted
-import kotlinx.coroutines.flow.collect
 
 /**
  * Created by LJW on 2021/12/12.
