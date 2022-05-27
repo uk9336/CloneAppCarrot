@@ -28,17 +28,19 @@
 - 기능
   - 딜레이 1초 후 화면 이동
 
-► 메인화면
+► 화면
 
 - UI
+
   - 상단 툴바 구성
   - 하단탭 5개 구성
   - 아이콘은 svg 형식 사용
-- 기능
-  - 탭 홈
-    - 동네설정은 일단 제외 후 리스트 구현 진행
-    - 서버 통신을 하지 않으므로 FakeList 생성하여 데이터 역할
-    - 리사이블러뷰 아이템 클릭 시 makeSceneTransitionAnimation 적용
+
+- 탭 홈
+
+  - 동네설정은 일단 제외 후 리스트 구현 진행
+  - 서버 통신을 하지 않으므로 FakeList 생성하여 데이터 역할
+  - 리사이블러뷰 아이템 클릭 시 makeSceneTransitionAnimation 적용
   - 상품 상세보기
     - ViewPager2 사용하여 이미지 리스트 보여줌
     - 인디게이터 적용
@@ -46,8 +48,8 @@
     - 데이터 형식 샘플
     ```
     {
-       "json_product":[
-           {
+        "json_product":[
+            {
                 "index": "1",
                 "userUid": "userUid1",
                 "image_url1": "https://i.picsum.photos/id/599/200/200.jpg?hmac=2WLKs3sxIsaEQ-6WZaa6YMxgl6ZC4cNnid0aqupm2is",
@@ -96,3 +98,6 @@
         ]
     }
     ```
+
+- 탭 동네생활
+  - 동네생활 페이크 리스트 구현
