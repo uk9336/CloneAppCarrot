@@ -1,11 +1,10 @@
 package com.jw.cloneappcarrot.feature.tab_home
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import com.jw.cloneappcarrot.R
 import com.jw.cloneappcarrot.base.BaseFragment
 import com.jw.cloneappcarrot.databinding.FragmentHomeBinding
-import com.orhanobut.logger.Logger
+import com.jw.cloneappcarrot.feature.tab_home.adapter.HomeAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -20,9 +19,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     override fun onCreated(savedInstanceState: Bundle?) {
 
-        viewModel._homeList.observe(this, Observer {
+        viewModel._homeList.observe(this) {
             val adapter = HomeAdapter(it, requireActivity())
             binding.recyclerView.adapter = adapter
-        })
+        }
     }
 }

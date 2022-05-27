@@ -1,4 +1,4 @@
-package com.jw.cloneappcarrot.feature.tab_home
+package com.jw.cloneappcarrot.feature.tab_home.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.jw.cloneappcarrot.R
-import com.jw.cloneappcarrot.common.Dlog
 import com.jw.cloneappcarrot.databinding.ItemHomeAdBinding
 import com.jw.cloneappcarrot.databinding.ItemHomeBinding
+import com.jw.cloneappcarrot.feature.tab_home.HomeViewModel
 import com.jw.cloneappcarrot.model.JsonProduct
 
 /**

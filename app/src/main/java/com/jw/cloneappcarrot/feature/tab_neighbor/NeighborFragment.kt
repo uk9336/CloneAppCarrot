@@ -1,39 +1,23 @@
 package com.jw.cloneappcarrot.feature.tab_neighbor
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import com.jw.cloneappcarrot.R
+import com.jw.cloneappcarrot.base.BaseFragment
 import com.jw.cloneappcarrot.databinding.FragmentNeighborBinding
-import com.jw.cloneappcarrot.feature.tab_home.HomeRepositoryImpl
+import com.jw.cloneappcarrot.feature.tab_neighbor.adapter.NeighborAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class NeighborFragment : Fragment() {
+class NeighborFragment :
+    BaseFragment<FragmentNeighborBinding, NeighborViewModel>(R.layout.fragment_neighbor) {
 
-    private lateinit var binding: FragmentNeighborBinding
-    private val viewModel by viewModels<NeighborViewModel>()
+    override fun defineViewModel() = getViewModel(NeighborViewModel::class.java)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_neighbor, container, false)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = requireActivity()
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.getDate()
+    override fun onCreated(savedInstanceState: Bundle?) {
+        viewModel._neighborList.observe(this) {
+            val adapter = NeighborAdapter(it, requireActivity())
+            binding.recyclerView.adapter = adapter
+        }
     }
 
 }

@@ -1,4 +1,4 @@
-package com.jw.cloneappcarrot.feature.tab_home
+package com.jw.cloneappcarrot.feature.tab_home.adapter
 
 import android.app.Activity
 import android.app.ActivityOptions
@@ -57,7 +57,7 @@ class HomeAdapter(
         return items.size
     }
 
-    override fun onBindViewHolder(holder: HomeAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(items[position])
         Glide.with(activity)
             .load(items[position].image_url1)
