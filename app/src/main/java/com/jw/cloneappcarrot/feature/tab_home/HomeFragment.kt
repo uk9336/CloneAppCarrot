@@ -19,7 +19,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     override fun onCreated(savedInstanceState: Bundle?) {
 
-        viewModel._homeList.observe(this) {
+        // Subscribe
+        viewModel.behaviorProducts.subscribe {
             val adapter = HomeAdapter(it, requireActivity())
             binding.recyclerView.adapter = adapter
         }

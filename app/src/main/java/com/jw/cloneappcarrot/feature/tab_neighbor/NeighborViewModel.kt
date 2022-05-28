@@ -1,7 +1,5 @@
 package com.jw.cloneappcarrot.feature.tab_neighbor
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.jw.cloneappcarrot.base.BaseFragmentViewModel
 import com.jw.cloneappcarrot.model.NeighborModel
@@ -24,23 +22,10 @@ class NeighborViewModel @Inject constructor() : BaseFragmentViewModel() {
         getDate()
     }
 
-
-    /**
-     * 동네생활 탭 데이터 리스트 받아오기
-     */
-    val _neighborList = MutableLiveData<List<NeighborModel>>()
-    val neighborList: LiveData<List<NeighborModel>>
-        get() = _neighborList
-
-
-    fun getDate() {
+    private fun getDate() {
         viewModelScope.launch {
             val data = NeighborRepositoryImpl.getNeighborList()
-            _neighborList.value = data
+            behavior.onNext(data)
         }
     }
-
-    fun getType() {
-    }
-
 }

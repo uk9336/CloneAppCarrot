@@ -18,14 +18,17 @@ class NeighborFragment :
     override fun defineViewModel() = getViewModel(NeighborViewModel::class.java)
 
     override fun onCreated(savedInstanceState: Bundle?) {
+
         init()
-        viewModel._neighborList.observe(this) {
+
+        // Subscribe
+        viewModel.behavior.subscribe {
             val adapter = NeighborAdapter(it)
             binding.recyclerView.adapter = adapter
         }
     }
 
-    fun init() {
+    private fun init() {
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.typeRecyclerView.layoutManager = layoutManager
