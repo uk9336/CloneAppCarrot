@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CloneAppCarrot">
         <activity
+            android:name=".feature.tab_neighbor.neighbor_type.NeighborTypeActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.main.CommonActionBar"
             android:exported="false" />
         <activity

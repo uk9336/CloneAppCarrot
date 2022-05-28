@@ -10,6 +10,6 @@ import com.jw.cloneappcarrot.model.*
 interface HomeRepository {
 
     suspend fun getHomeList(): List<JsonProduct> {
-        return fakeJson
+        return FakeProductList
     }
 }

@@ -36,7 +36,7 @@
         <TextView
             android:id="@+id/titleTv"
             style="@style/FontTv"
-            home_title="@{model.title}"
+            string="@{model.title}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/side_padding"
@@ -47,7 +47,7 @@
         <TextView
             android:id="@+id/neighborTv"
             style="@style/FontTv"
-            home_neighbor="@{model.neighbor}"
+            string="@{model.neighbor}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/side_padding"
@@ -68,7 +68,7 @@
         <TextView
             android:id="@+id/timeTv"
             style="@style/FontTv"
-            home_time="@{model.time}"
+            string="@{model.time}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="시간"
@@ -78,7 +78,7 @@
 
         <TextView
             style="@style/FontTv"
-            home_price="@{model.price}"
+            string="@{model.price}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/side_padding"
@@ -95,16 +95,16 @@
 
             <ImageView
                 android:id="@+id/chatIv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_tab_4"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_reply"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/chatCountTv" />
 
             <TextView
                 android:id="@+id/chatCountTv"
                 style="@style/FontTv"
-                home_chat="@{model.chat}"
+                string="@{model.chat}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2"
@@ -114,8 +114,8 @@
 
             <ImageView
                 android:id="@+id/likeIv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_like"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/likeCountTv" />
@@ -123,7 +123,7 @@
             <TextView
                 android:id="@+id/likeCountTv"
                 style="@style/FontTv"
-                home_life="@{model.like}"
+                string="@{model.like}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"

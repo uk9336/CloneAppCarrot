@@ -8,7 +8,7 @@ package com.jw.cloneappcarrot.model
 
 
 // 내 동네 게시글 리스트
-val fakeJson: List<JsonProduct> = listOf(
+val FakeProductList: List<JsonProduct> = listOf(
     JsonProduct(
         1,
         "userUid1",

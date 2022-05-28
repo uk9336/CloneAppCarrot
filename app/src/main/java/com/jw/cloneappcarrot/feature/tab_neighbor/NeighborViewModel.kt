@@ -40,4 +40,7 @@ class NeighborViewModel @Inject constructor() : BaseFragmentViewModel() {
         }
     }
 
+    fun getType() {
+    }
+
 }

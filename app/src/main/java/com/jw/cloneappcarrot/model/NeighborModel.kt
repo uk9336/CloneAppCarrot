@@ -18,3 +18,7 @@ data class NeighborModel(
     val good: Int,
     val reply: Int,
 )
+
+data class NeighborTypeModel(
+    val type: String
+)
