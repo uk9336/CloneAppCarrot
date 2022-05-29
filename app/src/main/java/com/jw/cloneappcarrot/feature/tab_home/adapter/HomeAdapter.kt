@@ -5,6 +5,7 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jw.cloneappcarrot.databinding.ItemHomeBinding

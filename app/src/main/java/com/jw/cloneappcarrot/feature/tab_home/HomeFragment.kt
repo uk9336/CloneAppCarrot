@@ -21,7 +21,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
         // Subscribe
         viewModel.behaviorProducts.subscribe {
-            val adapter = HomeAdapter(it, requireActivity())
+            val adapter = HomeAdapter(it, baseActivity)
             binding.recyclerView.adapter = adapter
         }
     }
