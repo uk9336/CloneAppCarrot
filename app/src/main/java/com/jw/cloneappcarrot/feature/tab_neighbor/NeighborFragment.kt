@@ -22,10 +22,7 @@ class NeighborFragment :
         init()
 
         // Subscribe
-        viewModel.behavior.subscribe {
-            val adapter = NeighborAdapter(it)
-            binding.recyclerView.adapter = adapter
-        }
+        setSubscribe()
     }
 
     private fun init() {
@@ -34,5 +31,14 @@ class NeighborFragment :
         binding.typeRecyclerView.layoutManager = layoutManager
         val adapter = NeighborTypeAdapter(FakeNeighborTypeList)
         binding.typeRecyclerView.adapter = adapter
+    }
+
+
+    // Subscribe
+    private fun setSubscribe() {
+        viewModel.behavior.subscribe {
+            val adapter = NeighborAdapter(it)
+            binding.recyclerView.adapter = adapter
+        }
     }
 }
