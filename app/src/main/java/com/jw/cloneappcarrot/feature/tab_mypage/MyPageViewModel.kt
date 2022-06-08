@@ -1,6 +1,8 @@
 package com.jw.cloneappcarrot.feature.tab_mypage
 
 import androidx.lifecycle.ViewModel
+import com.jw.cloneappcarrot.base.BaseFragmentViewModel
+import com.jw.cloneappcarrot.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -10,5 +12,8 @@ import javax.inject.Inject
  * Description :
  */
 @HiltViewModel
-class MyPageViewModel @Inject constructor() : ViewModel() {
+class MyPageViewModel @Inject constructor() : BaseFragmentViewModel() {
+    override fun onInitInternal() {
+        // ...
+    }
 }
