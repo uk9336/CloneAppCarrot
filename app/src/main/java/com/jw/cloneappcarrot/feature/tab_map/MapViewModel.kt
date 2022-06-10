@@ -1,6 +1,6 @@
 package com.jw.cloneappcarrot.feature.tab_map
 
-import androidx.lifecycle.ViewModel
+import com.jw.cloneappcarrot.base.BaseFragmentViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -10,5 +10,8 @@ import javax.inject.Inject
  * Description :
  */
 @HiltViewModel
-class MapViewModel @Inject constructor() : ViewModel() {
+class MapViewModel @Inject constructor() : BaseFragmentViewModel() {
+    override fun onInitInternal() {
+        // ...
+    }
 }
